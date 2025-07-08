@@ -1,3 +1,4 @@
+import { Orbitron } from "next/font/google"
 import "./globals.css"
 
 // Note this configuration is important for th fonts to wor
@@ -15,11 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${orbitron.className} antialiased`}>{children}</body>
     </html>
   )
 }
