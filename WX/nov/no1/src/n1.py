@@ -21,7 +21,7 @@ NV_T = os.getenv("NOV")
 
 
 def n1_main():
-    brint_env()
+    te_mo()
 
 
 # --- Subs ----
@@ -38,17 +38,17 @@ def te_mo():
     he1("Testing Models")
 
     modelz = [
-        "baidu/ernie-4.5-vl-28b-a3b",
-        "baidu/ernie-4.5-0.3b",
         "google/gemma-3-1b-it",
         "qwen/qwen3-4b-fp8",
         "qwen/qwen2.5-7b-instruct",
-
+        "meta-llama/llama-3.2-1b-instruct"
     ]
+
+    quez = "What mean buty dance ?"
 
     base_url = "https://api.novita.ai/v3/openai"
     api_key = NV_T
-    model = "baidu/ernie-4.5-vl-28b-a3b"
+    model = modelz[0]
 
     client = OpenAI(
         base_url=base_url,
@@ -66,7 +66,7 @@ def te_mo():
 
             {
                 "role": "user",
-                "content": "Hi there!",
+                "content": quez,
             }
         ],
         stream=stream,
@@ -76,6 +76,6 @@ def te_mo():
 
     if stream:
         for chunk in chat_completion_res:
-            print(chunk.choices[0].delta.content or "", end="")
+            rpr(chunk.choices[0].delta.content or "", end="")
     else:
-        print(chat_completion_res.choices[0].message.content)
+        rpr(chat_completion_res.choices[0].message.content)
