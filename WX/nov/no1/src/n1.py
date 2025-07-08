@@ -79,11 +79,12 @@ def te_mo():
         for chunk in chat_completion_res:
             rpr(chunk.choices[0].delta.content or "", end="")
     else:
+        answerz = chat_completion_res.choices[0].message.content
         rpr(chat_completion_res.choices[0].message.content)
 
     save_to_markdown(
         answerz,
-        prefix="openai_gpt-4.1",
+        prefix="google_gemma-3-1b-it",
         directory="rez/",
         header_level=2,
         include_time_in_filename=True,
