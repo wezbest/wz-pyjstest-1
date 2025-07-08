@@ -56,7 +56,7 @@ def te_mo():
         api_key=api_key,
     )
 
-    stream = True  # or False
+    stream = False  # or False
     max_tokens = 1000
 
     response_format = {"type": "text"}
@@ -74,6 +74,8 @@ def te_mo():
         extra_body={
         }
     )
+
+    answerz = chat_completion_res.choices[0].message.content
 
     if stream:
         for chunk in chat_completion_res:
