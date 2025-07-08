@@ -10,3 +10,4 @@
 |       Dir       |     What      |
 | :-------------: | :-----------: |
 | [`nov`](./nov/) | Novita testaz |
+| [`ais`](./ais/) |   AiSDK Use   |
