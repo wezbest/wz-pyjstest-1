@@ -11,6 +11,7 @@ from openai import OpenAI
 from rich import print as rpr
 
 from .utz import he1
+from .wm import save_to_markdown
 
 # --- Vars ----
 
@@ -79,3 +80,15 @@ def te_mo():
             rpr(chunk.choices[0].delta.content or "", end="")
     else:
         rpr(chat_completion_res.choices[0].message.content)
+
+    save_to_markdown(
+        answerz,
+        prefix="openai_gpt-4.1",
+        directory="rez/",
+        header_level=2,
+        include_time_in_filename=True,
+        metadata={
+            "Model": modelz[0],
+            "Question": quez
+        }
+    )
