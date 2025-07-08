@@ -53,5 +53,30 @@ uvsetup() {
     echo -e "${GREEN}***** Installation Completed *****${NC}"
 }
 
+# //////// NextJs ////
+
+njs1() {
+    hea1 "NextJs Installation with packages"
+
+    # Get Name of project
+    echo -e "Enter the name of the project: "
+    read name_of_project
+    if [ -z "$name_of_project" ]; then
+        echo -e "${RED}BASTARD ! Project name cannot be empty${NC}"
+        exit 1
+    fi
+
+    # UC Commands
+    CO1="bunx create-next-app@latest $name_of_project"
+    CO2="cd $name_of_project"
+
+    ## RUN Above Commands
+    echo -e "--- Executing ${CO1} ---"
+    eval "$CO1"
+    echo -e "--- Executing ${CO2} ---"
+    eval "$CO2"
+    echo -e "${GREEN}***** Installation Completed *****${NC}"
+}
+
 # Run
 uvsetup
