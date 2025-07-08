@@ -2,11 +2,12 @@
 # Main Entry point
 # //////////////////////////////////////////
 
+from src.n1 import n1_main
 from src.utz import eline, tline
 
 
 def main():
-    print("Hello from no1!")
+    n1_main()
 
 
 if __name__ == "__main__":
