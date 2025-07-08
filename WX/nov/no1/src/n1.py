@@ -40,7 +40,10 @@ def te_mo():
     modelz = [
         "baidu/ernie-4.5-vl-28b-a3b",
         "baidu/ernie-4.5-0.3b",
-        "google/gemma-3-1b-it"
+        "google/gemma-3-1b-it",
+        "qwen/qwen3-4b-fp8",
+        "qwen/qwen2.5-7b-instruct",
+
     ]
 
     base_url = "https://api.novita.ai/v3/openai"
