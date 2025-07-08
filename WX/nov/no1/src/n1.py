@@ -37,8 +37,14 @@ def brint_env():
 def te_mo():
     he1("Testing Models")
 
+    modelz = [
+        "baidu/ernie-4.5-vl-28b-a3b",
+        "baidu/ernie-4.5-0.3b",
+        "google/gemma-3-1b-it"
+    ]
+
     base_url = "https://api.novita.ai/v3/openai"
-    api_key = "<Your API Key>"
+    api_key = NV_T
     model = "baidu/ernie-4.5-vl-28b-a3b"
 
     client = OpenAI(
