@@ -7,6 +7,7 @@
 import os
 
 from dotenv import load_dotenv
+from openai import OpenAI
 from rich import print as rpr
 
 from .utz import he1
@@ -20,10 +21,52 @@ NV_T = os.getenv("NOV")
 
 
 def n1_main():
-    pass
+    brint_env()
 
 
 # --- Subs ----
+
+# Brinting envaz
 def brint_env():
     he1("Brintaz Envaz")
     rpr(f"[bold green]NOV:[/bold green] {NV_T}")
+
+# Testing Modelo
+
+
+def te_mo():
+    he1("Testing Models")
+
+    base_url = "https://api.novita.ai/v3/openai"
+    api_key = "<Your API Key>"
+    model = "baidu/ernie-4.5-vl-28b-a3b"
+
+    client = OpenAI(
+        base_url=base_url,
+        api_key=api_key,
+    )
+
+    stream = True  # or False
+    max_tokens = 1000
+
+    response_format = {"type": "text"}
+
+    chat_completion_res = client.chat.completions.create(
+        model=model,
+        messages=[
+
+            {
+                "role": "user",
+                "content": "Hi there!",
+            }
+        ],
+        stream=stream,
+        extra_body={
+        }
+    )
+
+    if stream:
+        for chunk in chat_completion_res:
+            print(chunk.choices[0].delta.content or "", end="")
+    else:
+        print(chat_completion_res.choices[0].message.content)
